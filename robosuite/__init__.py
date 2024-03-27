@@ -1,7 +1,6 @@
 from robosuite.environments.base import make
 
 # Manipulation environments
-from robosuite.environments.manipulation.only_robot import OnlyRobot
 from robosuite.environments.manipulation.lift import Lift
 from robosuite.environments.manipulation.stack import Stack
 from robosuite.environments.manipulation.nut_assembly import NutAssembly
@@ -13,6 +12,7 @@ from robosuite.environments.manipulation.two_arm_lift import TwoArmLift
 from robosuite.environments.manipulation.two_arm_peg_in_hole import TwoArmPegInHole
 from robosuite.environments.manipulation.two_arm_handover import TwoArmHandover
 from robosuite.environments.manipulation.two_arm_transport import TwoArmTransport
+from robosuite.environments.manipulation.only_robot import OnlyRobot
 
 from robosuite.environments import ALL_ENVIRONMENTS
 from robosuite.controllers import ALL_CONTROLLERS, load_controller_config
