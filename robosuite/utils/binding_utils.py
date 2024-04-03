@@ -1153,6 +1153,19 @@ class MjSim:
         self.data.time = value.time
         self.data.qpos[:] = np.copy(value.qpos)
         self.data.qvel[:] = np.copy(value.qvel)
+    
+    def set_state_from_flattened_trans(self, value, trans_range, body_id, seed):
+        np.random.seef(seed)
+        translation_vector = np.random.uniform(-trans_range, trans_range, size=2)
+        translation_vector = np.append(translation_vector, 0)
+
+        state = MjSimState.from_flattened(value, self)
+
+        # do this instead of @set_state to avoid extra copy of qpos and qvel
+        self.data.time = state.time
+        self.data.qpos[:] = state.qpos
+        self.data.qpos[body_id] += translation_vector
+        self.data.qvel[:] = state.qvel
 
     def set_state_from_flattened(self, value):
         """
